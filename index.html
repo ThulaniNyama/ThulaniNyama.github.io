@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thulani Nyama</title>
+     <!-- below is the link of font awesome icon  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen and (max-device-width: 608px)" href="tablet.css">
+    <link rel="stylesheet" media="screen and (max-device-width: 502px)" href="phone.css">
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!--      creating navigation menu        -->
+        <div class="navbar">
+            <div id="nav">
+                <ul class="links">
+                    <li><a href="" class="nvg">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">WORK</a></li>
+                    <li><a href="">SKILL</a></li>
+                    <li><a href="">CONTACT</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- creating hamburger icon        -->
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+
+
+        <!-- adding social media icons     -->
+        <div id="follow">
+            <a href="https://www.linkedin.com/in/thulani-nyama-816194198/">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <br>
+            <a href="https://github.com/ThulaniNyama">
+                <i class="fa fa-github" aria-hidden="true"></i><br>
+            </a>
+            <i class="fa fa-facebook-official" aria-hidden="true"></i><br>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </div>
+        <div id="develop">DEVELOP</div>
+        <div id="web">WEB</div>
+        <div id="dev">DEVELOPER</div>
+        <div id="fullstack">Full-Stack</div>
+        <!-- this box contain some information    -->
+        <div id="box1">
+            <div id="web2">Software<span id="dev2">Developer</span></div>
+            <div id="vl"></div>
+            <div id="hello">Hello World,</div>
+            <div id="me">I'm <span id="rks">Thulani Nyama</span></div>
+            <div id="fullstackdev">Full-Stack <span id="webdev22">Developer</span></div>
+        </div>
+
+        <div id="square1"></div>
+        <div id="square2"></div>
+        
+        <!-- creating button     -->
+        <button id="btncontact" type="button">Contact</button>
+
+        <!-- Adding profile image in background -->
+        <div id="pic">
+            <img src="ThulaniNyama.png" alt="Thulani">
+        </div>
+
+
+    </div>
+
+    <!-- javascript for functioning of sidebar menu  -->
+    <script>
+
+        const slide = () => {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('.navbar');
+            const navlinks = document.querySelectorAll('.links li');
+            burger.addEventListener('click', () => {
+                nav.classList.toggle('navbaract');
+
+                navlinks.forEach((link, index) => {
+
+                    if (link.style.animation) {
+                        link.style.animation = '';
+                    }
+                    else {
+                        link.style.animation = `navlinkfade 4s ease backwards ${index / 10}s`;
+                    }
+                });
+            });
+        }
+        slide();
+
+    </script>
+
+</body>
+
+</html>
