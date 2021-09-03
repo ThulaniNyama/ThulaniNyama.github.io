@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" media="screen and (max-device-width: 608px)" href="tablet.css">
     <link rel="stylesheet" media="screen and (max-device-width: 502px)" href="phone.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
 </head>
 
 <body>
@@ -21,16 +26,15 @@
         <div class="navbar">
             <div id="nav">
                 <ul class="links">
-                    <li><a href="" class="nvg">HOME</a></li>
+                    <li><a href="" class="nvg">Thulani</a></li>
                     <li><a href="">ABOUT</a></li>
                     <li><a href="">WORK</a></li>
                     <li><a href="">SKILL</a></li>
                     <li><a href="">CONTACT</a></li>
-
                 </ul>
             </div>
-
         </div>
+
         <!-- creating hamburger icon        -->
         <div class="burger">
             <div class="line1"></div>
@@ -48,27 +52,36 @@
             <a href="https://github.com/ThulaniNyama">
                 <i class="fa fa-github" aria-hidden="true"></i><br>
             </a>
-            <i class="fa fa-facebook-official" aria-hidden="true"></i><br>
-            <i class="fa fa-twitter" aria-hidden="true"></i>
+            <a href="https://wa.me/+27818481977">
+                <i class="fa fa-whatsapp" aria-hidden="true"></i><br>
+            </a>
         </div>
+        <!-- background text        -->
         <div id="develop">DEVELOP</div>
         <div id="web">WEB</div>
         <div id="dev">DEVELOPER</div>
         <div id="fullstack">Full-Stack</div>
+        <div id="dev">DEVELOPER</div>
+
         <!-- this box contain some information    -->
         <div id="box1">
             <div id="web2">Software<span id="dev2">Developer</span></div>
             <div id="vl"></div>
             <div id="hello">Hello World,</div>
-            <div id="me">I'm <span id="rks">Thulani Nyama</span></div>
-            <div id="fullstackdev">Full-Stack <span id="webdev22">Developer</span></div>
+            <div id="me">I'm <span id="rks">Thulani Nyama,</span></div>
+            <div id="fullstackdev">
+                <div id="text"></div><div id="cursor"></div><span id="webdev22"> Developer / Engineer</span>
+            </div>
+
+            
+
         </div>
 
         <div id="square1"></div>
         <div id="square2"></div>
         
         <!-- creating button     -->
-        <button id="btncontact" type="button">Contact</button>
+        <button id="btncontact" type="button">Hire Thulani</button>
 
         <!-- Adding profile image in background -->
         <div id="pic">
@@ -100,6 +113,78 @@
             });
         }
         slide();
+
+        // List of sentences
+var _CONTENT = [ 
+    "App", 
+    "Web", 
+    "Sofware", 
+    "Full-Stack"
+];
+
+// Current sentence being processed
+var _PART = 0;
+
+// Character number of the current sentence being processed 
+var _PART_INDEX = 0;
+
+// Holds the handle returned from setInterval
+var _INTERVAL_VAL;
+
+// Element that holds the text
+var _ELEMENT = document.querySelector("#text");
+
+// Cursor element 
+var _CURSOR = document.querySelector("#cursor");
+
+// Implements typing effect
+function Type() { 
+    // Get substring with 1 characater added
+    var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+    _ELEMENT.innerHTML = text;
+    _PART_INDEX++;
+
+    // If full sentence has been displayed then start to delete the sentence after some time
+    if(text === _CONTENT[_PART]) {
+        // Hide the cursor
+        _CURSOR.style.display = 'none';
+
+        clearInterval(_INTERVAL_VAL);
+        setTimeout(function() {
+            _INTERVAL_VAL = setInterval(Delete, 50);
+        }, 1000);
+    }
+}
+
+// Implements deleting effect
+function Delete() {
+    // Get substring with 1 characater deleted
+    var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+    _ELEMENT.innerHTML = text;
+    _PART_INDEX--;
+
+    // If sentence has been deleted then start to display the next sentence
+    if(text === '') {
+        clearInterval(_INTERVAL_VAL);
+
+        // If current sentence was last then display the first one, else move to the next
+        if(_PART == (_CONTENT.length - 1))
+            _PART = 0;
+        else
+            _PART++;
+        
+        _PART_INDEX = 0;
+
+        // Start to display the next sentence after some time
+        setTimeout(function() {
+            _CURSOR.style.display = 'inline-block';
+            _INTERVAL_VAL = setInterval(Type, 100);
+        }, 200);
+    }
+}
+
+// Start the typing effect on load
+_INTERVAL_VAL = setInterval(Type, 100);
 
     </script>
 

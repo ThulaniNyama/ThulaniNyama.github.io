@@ -319,5 +319,33 @@ body{
     display: none;
 }
 
+#text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 37px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    top: 255px;
+    left: 24px;
+    font-size: 37px;
+    font-family: 'Righteous', cursive;
+    font-stretch: extra-condensed;
+}
 
+#cursor {
+    display: inline-block;
+    vertical-align: middle;
+    width: 3px;
+    height: 50px;
+    background-color: orange;
+    animation: blink .75s step-end infinite;
+}
 
+@keyframes blink {
+    from, to { 
+        background-color: transparent 
+    }
+    50% { 
+        background-color: #ffffff; 
+    }
+}
